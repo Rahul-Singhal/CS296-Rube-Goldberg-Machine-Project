@@ -22,7 +22,7 @@
  * Instructor: Parag Chaudhuri
  */
 
-	/*first change : Rahul Singhal*/
+	/*first change : Rahul*/
 
 #include "cs296_base.hpp"
 #include "render.hpp"
