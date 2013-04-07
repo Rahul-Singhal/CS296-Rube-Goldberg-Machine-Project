@@ -380,7 +380,91 @@ namespace cs296
     
   
 
+     {
+    	//balls on the moving hinged edge
+    	b2Body* sbody;
+      b2CircleShape circle;
+      circle.m_radius = 1.0;
+	
+      b2FixtureDef ballfd;
+      ballfd.shape = &circle;
+      ballfd.density = 10.0f;
+      ballfd.friction = 0.2f;
+      ballfd.restitution = 0.0f;
+      b2BodyDef ballbd;
+      ballbd.type = b2_dynamicBody;
+      ballbd.position.Set(-14.5f, 31.f);
+      sbody = m_world->CreateBody(&ballbd);
+      sbody->CreateFixture(&ballfd);
+      
+      ballbd.position.Set(-11.5f, 31.f);
+      sbody = m_world->CreateBody(&ballbd);
+      sbody->CreateFixture(&ballfd);
+    	
+    }
+    
+    
+    {
+    	//dominoes level
+    	
+    	
+    	b2BodyDef bd;
+      bd.position.Set(-15.0f, 27.0f);
+      b2Body* body = m_world->CreateBody(&bd);
+      
+      b2PolygonShape shape;
+      shape.SetAsBox(7.f, 0.2f);
+      
+      b2FixtureDef *fd = new b2FixtureDef;
+      fd->density = 50.0f;
+      fd->shape = new b2PolygonShape;
+      fd->shape = &shape;
+      
      
+      shape.SetAsBox(3.f, 0.2f ,b2Vec2(-8.6,-1.5), -5.8);
+      body->CreateFixture(fd);
+      
+      shape.SetAsBox(8.f, 0.2f ,b2Vec2(-18.6,-2.8), 0);
+      body->CreateFixture(fd);
+    }
+    
+     {
+		//dominoes and ball
+      b2PolygonShape shape;
+      shape.SetAsBox(0.2f, 1.5f);
+	
+      b2FixtureDef fd;
+      fd.shape = &shape;
+      fd.density = 20.0f;
+      fd.friction = 0.1f;
+		
+      for (int i = 0; i < 10; ++i)
+	{
+	  b2BodyDef bd;
+	  bd.type = b2_dynamicBody;
+	  bd.position.Set(-37.0f + 1.0f * i, 25.25f);
+	  b2Body* body = m_world->CreateBody(&bd);
+	  body->CreateFixture(&fd);
+	}
+	
+			b2Body* sbody;
+      b2CircleShape circle;
+      circle.m_radius = 1.0;
+	
+      b2FixtureDef ballfd;
+      ballfd.shape = &circle;
+      ballfd.density = 15.0f;
+      ballfd.friction = 0.2f;
+      ballfd.restitution = 0.0f;
+      b2BodyDef ballbd;
+      ballbd.type = b2_dynamicBody;
+      ballbd.position.Set(-40.5f, 24.25f);
+      sbody = m_world->CreateBody(&ballbd);
+      sbody->CreateFixture(&ballfd);
+    
+    }
+
+    
     
   
   }
