@@ -464,6 +464,97 @@ namespace cs296
     
     }
 
+    {
+		
+		
+    	b2BodyDef bd;
+      bd.position.Set(-56.0f, 16.0f);
+      b2Body* body = m_world->CreateBody(&bd);
+      
+      b2PolygonShape shape;
+      shape.SetAsBox(4.f, 0.2f);
+      
+      b2PolygonShape shape1;
+      shape1.SetAsBox(0.3f, 6.0f,b2Vec2(-3.8,6.0), 0);
+      
+      b2PolygonShape shape2;
+      shape2.SetAsBox(0.3f, 2.0f,b2Vec2(4,1.5), 0);
+      
+      b2FixtureDef *fd = new b2FixtureDef;
+      fd->density = 50.0f;
+      fd->shape = new b2PolygonShape;
+      fd->shape = &shape;
+      
+      b2FixtureDef *fd1 = new b2FixtureDef;
+      fd1->density = 50.0f;
+      fd1->shape = new b2PolygonShape;
+      fd1->shape = &shape1;
+      
+      b2FixtureDef *fd2 = new b2FixtureDef;
+      fd2->density = 50.0f;
+      fd2->shape = new b2PolygonShape;
+      fd2->shape = &shape2;
+      
+      body->CreateFixture(fd);
+      body->CreateFixture(fd1);      
+      body->CreateFixture(fd2);
+    	
+    	
+    }
+    
+    {
+    	b2Body* sbody;
+      b2CircleShape circle;
+      circle.m_radius = 1.0;
+	
+      b2FixtureDef ballfd;
+      ballfd.shape = &circle;
+      ballfd.density = 15.0f;
+      ballfd.friction = 0.2f;
+      ballfd.restitution = 0.0f;
+      b2BodyDef ballbd;
+      ballbd.type = b2_dynamicBody;
+      ballbd.position.Set(-55.5f, 19.25f);
+      sbody = m_world->CreateBody(&ballbd);
+      sbody->CreateFixture(&ballfd);
+      sbody->SetGravityScale(-1);
+      
+      ballbd.position.Set(-56.9f, 19.25f);
+      sbody = m_world->CreateBody(&ballbd);
+      sbody->CreateFixture(&ballfd);
+      sbody->SetGravityScale(-1);
+      
+      
+    }
+    
+    {
+    	b2BodyDef bd;
+      bd.position.Set(-51.4f, 20.3f);
+      bd.type = b2_dynamicBody;
+      b2Body* body = m_world->CreateBody(&bd);
+      
+      b2PolygonShape shape;
+      shape.SetAsBox(8.f, 0.2f);
+      
+      b2PolygonShape shape1;
+      shape1.SetAsBox(3.f, 1.0f,b2Vec2(-1.3,1), 0);
+      
+      b2FixtureDef *fd = new b2FixtureDef;
+      fd->density = 50.0f;
+      fd->shape = new b2PolygonShape;
+      fd->shape = &shape;
+      
+      b2FixtureDef *fd1 = new b2FixtureDef;
+      fd1->density = 50.0f;
+      fd1->shape = new b2PolygonShape;
+      fd1->shape = &shape1;
+      
+      
+      body->CreateFixture(fd);
+      body->CreateFixture(fd1);      
+    }
+   
+    
     
     
   
