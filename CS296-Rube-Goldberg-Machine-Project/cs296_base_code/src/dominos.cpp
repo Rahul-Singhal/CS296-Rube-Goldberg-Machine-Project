@@ -918,7 +918,56 @@ namespace cs296
       
       
   }
-
+  
+  {
+  	{
+		b2BodyDef bd;
+		bd.position.Set(38.3f, 27.0f);
+		b2BodyDef bd1;
+		bd1.position.Set(38.3f, 23.0f);
+		b2BodyDef bd2;
+		bd2.position.Set(39.3f, 19.5f);
+		b2BodyDef bd3;
+		bd3.position.Set(38.05f, 17.3f);
+		b2Body* body = m_world->CreateBody(&bd); 
+		b2Body* body1 = m_world->CreateBody(&bd1); 
+		b2Body* body2 = m_world->CreateBody(&bd2); 
+		b2Body* body3 = m_world->CreateBody(&bd3); 
+		b2PolygonShape shape;
+        
+		b2FixtureDef *fd = new b2FixtureDef;
+		fd->density = 50.0f;
+		fd->shape = new b2PolygonShape;
+		fd->shape = &shape;
+		shape.SetAsBox(3.5,0.2,b2Vec2(1.0,0.5),1.57/2);
+		body->CreateFixture(fd);
+		shape.SetAsBox(3.0,0.2,b2Vec2(-2.0,0.0),1.57/2);
+		body->CreateFixture(fd);
+		
+		shape.SetAsBox(3.3,0.2,b2Vec2(0.9,0),-1.57/2);
+		body1->CreateFixture(fd);
+		shape.SetAsBox(3.0,0.2,b2Vec2(-2.0,0.0),-1.57/2);
+		body1->CreateFixture(fd);
+		
+		shape.SetAsBox(2.0,0.2,b2Vec2(0.9,0),1.57/2);
+		body2->CreateFixture(fd);
+		shape.SetAsBox(2.0,0.2,b2Vec2(-2.0,0.0),1.57/2);
+		body2->CreateFixture(fd);
+		
+		shape.SetAsBox(1.0,0.2,b2Vec2(0.9,0),1.57);
+		body3->CreateFixture(fd);
+		shape.SetAsBox(1.0,0.2,b2Vec2(-2.0,0.0),1.57);
+		body3->CreateFixture(fd);
+		
+     }
+  }
+  
+  
+  
+  
+  
+  
+  //void checkAngle(b2Body* bd);
   
   
   
