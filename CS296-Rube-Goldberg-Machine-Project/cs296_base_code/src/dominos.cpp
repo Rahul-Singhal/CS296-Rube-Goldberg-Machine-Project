@@ -855,7 +855,70 @@ namespace cs296
   
 	 }
 	 
-	
+	 {
+  		b2BodyDef bd;
+      bd.position.Set(40.f, 10.f);
+      b2Body* body = m_world->CreateBody(&bd);
+      
+      //mid body
+      b2PolygonShape shape1;
+      shape1.SetAsBox(2.f, 2.5f, b2Vec2(0,-3.5),0);
+      b2FixtureDef *fd1 = new b2FixtureDef;
+      fd1->shape = &shape1;
+     
+      //face
+      
+      b2BodyDef fac;
+      fac.type = b2_dynamicBody;
+      fac.position.Set(40.f, 10.f);
+      b2Body* face = m_world->CreateBody(&fac);
+      
+      
+      b2CircleShape shape2;
+      shape2.m_radius = 1.0;
+      b2FixtureDef *fd2 = new b2FixtureDef;
+      fd2->shape = &shape2;
+      
+      face->CreateFixture(fd2);
+      
+      //legs
+      b2PolygonShape shape3;
+      shape3.SetAsBox(0.3f, 2.f, b2Vec2(-1.5,-7),0);
+      b2FixtureDef *fd3 = new b2FixtureDef;
+      fd3->shape = &shape3;
+      
+      b2PolygonShape shape4;
+      shape4.SetAsBox(0.3f, 2.f, b2Vec2(1.5,-7),0);
+      b2FixtureDef *fd4 = new b2FixtureDef;
+      fd4->shape = &shape4;
+      
+      //hands
+      b2PolygonShape shape5;
+      shape5.SetAsBox(0.3f, 2.f, b2Vec2(2.5,-3),0.3);
+      b2FixtureDef *fd5 = new b2FixtureDef;
+      fd5->shape = &shape5;
+      
+      
+      
+      
+      
+      //fixtures
+      body->CreateFixture(fd1);
+      //body->CreateFixture(fd2);
+      body->CreateFixture(fd3);
+      body->CreateFixture(fd4);
+      body->CreateFixture(fd5);
+      //body->CreateFixture(fd6);
+      
+      
+      //elbow
+      
+      
+      
+      
+      
+  }
+
   
   
   
