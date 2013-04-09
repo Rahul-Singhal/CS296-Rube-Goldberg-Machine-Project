@@ -778,7 +778,84 @@ namespace cs296
       m_world->CreateJoint(&jointDef);
       
      }
+      {
+        b2PolygonShape shape0,shape1,shape2,shape3,shape4,shape5;
+        b2BodyDef bd,bd1,bd2;
+        //bd.type = b2_dynamicBody;
+        bd.position.Set(7.5f, 41.0f);
+        bd1.position.Set(18.52f, 38.2f);
+        bd2.position.Set(29.185f, 35.6f);
+        bd.type=b2_dynamicBody;
+        bd1.type=b2_dynamicBody;
+        bd2.type=b2_dynamicBody;
+        b2Body* body = m_world->CreateBody(&bd);
+        b2Body* body1 = m_world->CreateBody(&bd1);
+        b2Body* body2 = m_world->CreateBody(&bd2);
+        b2FixtureDef *fd0 = new b2FixtureDef;
+        b2FixtureDef *fd1 = new b2FixtureDef;
+        b2FixtureDef *fd2 = new b2FixtureDef;
+        b2FixtureDef *fd3 = new b2FixtureDef;
+        b2FixtureDef *fd4 = new b2FixtureDef;
+        fd0->density = 0.63625f*20;
+        fd1->density = 0.63625f*20;
+        fd2->density = 1.00f*20;
+        fd3->density = 0.63625f*20;
+        fd4->density = 0.63625f*20;
+        fd0->shape = new b2PolygonShape;
+        fd1->shape = new b2PolygonShape;
+        fd2->shape = new b2PolygonShape;
+        fd3->shape = new b2PolygonShape;
+        fd4->shape = new b2PolygonShape;
+        fd0->shape = &shape0;
+        fd1->shape = &shape1;
+        fd2->shape = &shape2;
+        fd3->shape = &shape3;
+        fd4->shape = &shape4;
+        shape0.SetAsBox(0.8f, 0.2f ,b2Vec2(-2.5,-3), 1.57f);
+        shape1.SetAsBox(0.8f, 0.2f ,b2Vec2(-0.5,-3), 1.57f);
+        shape2.SetAsBox(5.6f, 0.2f ,b2Vec2(5.5,1), 1.57f);
+        shape3.SetAsBox(0.8f, 0.2f ,b2Vec2(-1.5,-3.8), 0);
+        shape4.SetAsBox(3.f, 0.2f ,b2Vec2(2.75,-2.5), 0);
+        body->CreateFixture(fd0);
+        body->CreateFixture(fd1);
+        body->CreateFixture(fd2);
+        body->CreateFixture(fd3);
+        body->CreateFixture(fd4);
+        body1->CreateFixture(fd0);
+        body1->CreateFixture(fd1);
+        body1->CreateFixture(fd2);
+        body1->CreateFixture(fd3);
+        body1->CreateFixture(fd4);
+        body2->CreateFixture(fd0);
+        body2->CreateFixture(fd1);
+        body2->CreateFixture(fd2);
+        body2->CreateFixture(fd3);
+        body2->CreateFixture(fd4);
+        
+ 	    b2BodyDef hbd,hbd1,hbd2;
+     	hbd.position.Set(5.75f, 38.f);
+      	hbd1.position.Set(16.57f, 35.2f);
+      	hbd2.position.Set(27.37f, 32.6f);
+      	b2Body* hbody = m_world->CreateBody(&hbd);
+      	b2Body* hbody1 = m_world->CreateBody(&hbd1);
+      	b2Body* hbody2 = m_world->CreateBody(&hbd2);
       
+      	b2PolygonShape hshape;
+      
+      	b2FixtureDef *fd = new b2FixtureDef;
+      	fd->density = 50.0f;
+      	fd->shape = new b2PolygonShape;
+      	fd->shape = &hshape;
+        hshape.SetAsBox(.4f, 0.2f ,b2Vec2(5.4,0.0), 0);
+        hbody->CreateFixture(fd);
+        hshape.SetAsBox(.4f, 0.2f ,b2Vec2(5.4,0.0), 0);
+        hbody1->CreateFixture(fd);
+        hshape.SetAsBox(.4f, 0.2f ,b2Vec2(5.4,0.0), 0);
+        hbody2->CreateFixture(fd);
+  
+	 }
+	 
+	
   
   
   
