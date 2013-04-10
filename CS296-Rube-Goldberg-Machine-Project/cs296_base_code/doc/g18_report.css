@@ -1,0 +1,65 @@
+body{
+	margin:0px auto;
+	margin-bottom:40px;
+	width:80%;
+	border:2px solid black;
+	padding-right:10px;
+	padding-left:10px;
+	padding-top:10px;
+	padding-bottom:30px;
+}
+
+.title{
+	font-weight:bold;
+	font-size:28px;
+	text-align:center;	
+	border-bottom:2px solid black;
+	width:80%;
+	margin:30px auto;
+}
+
+.author{
+	width:60%;
+	margin:10px auto;
+	text-align:center;
+	
+}
+
+.section{
+	font-weight:bold;
+	font-size:20px;
+	border-bottom:2px solid black;
+	width:30%;
+	margin:20px 5px;
+}
+
+.subsection{
+	font-weight:bold;
+	font-size:18px;
+	margin:20px 5px;
+		width:20%;
+	border-bottom:2px dotted black;
+}
+
+.subsubsection{
+	font-weight:bold;
+	font-size:15px;
+	margin:20px 5px;
+}
+
+#date{
+	text-align:center;
+	padding-top:10px;
+	padding-bottom:20px;
+}
+
+.GRAPH{
+	width:100%;
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:center;
+}
+
+img{
+	max-width:100%; max-height:60%;
+}
