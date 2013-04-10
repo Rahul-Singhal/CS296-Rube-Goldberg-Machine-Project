@@ -35,6 +35,8 @@ namespace cs296
     
     dominos_t();
     
+    
+    
     static base_sim_t* create()
     {
       return new dominos_t;
