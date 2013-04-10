@@ -15,7 +15,7 @@ DOXYGEN = doxygen
 TARGET = cs296_base
 
 # Project Paths
-INSTALL_PATH = ~/
+INSTALL_PATH = ~/installed
 PROJECT_ROOT=$(CURDIR)
 EXTERNAL_ROOT=$(PROJECT_ROOT)/external
 SRCDIR = $(PROJECT_ROOT)/src
@@ -82,8 +82,14 @@ install_helper:
 
 install: setup install_helper install_non_gui report 
 	make install_gui
-	@cd ..; cp -r cs296_base_code $(INSTALL_PATH)/
-	make clean
+	@mkdir -p $(INSTALL_PATH)
+	@cp -r bin $(INSTALL_PATH)/
+	@cp -r scripts $(INSTALL_PATH)/
+	@mkdir -p $(INSTALL_PATH)/doc
+	@cp -f data/g18_prof_report.pdf $(INSTALL_PATH)/doc/
+	@cp -rf doc/images $(INSTALL_PATH)/doc/
+	@cp -f doc/g18_report.css $(INSTALL_PATH)/doc/
+	@cp -f doc/g18_report.html $(INSTALL_PATH)/doc/
 	
 
 
