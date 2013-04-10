@@ -222,5 +222,6 @@ clean:prof_clean
 dist	: clean
 	@rm -rf $(EXTERNAL_ROOT)/include/*
 	@rm -rf $(EXTERNAL_ROOT)/lib/*
+	@rm -rf $(EXTERNAL_ROOT)/src/Box2D
 	@cd ..; tar -zcf cs296_g18_project.tar.gz cs296_base_code
 	@mv ../cs296_g18_project.tar.gz .
