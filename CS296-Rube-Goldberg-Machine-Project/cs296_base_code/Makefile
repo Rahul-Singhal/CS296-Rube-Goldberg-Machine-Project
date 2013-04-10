@@ -15,6 +15,7 @@ DOXYGEN = doxygen
 TARGET = cs296_base
 
 # Project Paths
+INSTALL_PATH = ~/
 PROJECT_ROOT=$(CURDIR)
 EXTERNAL_ROOT=$(PROJECT_ROOT)/external
 SRCDIR = $(PROJECT_ROOT)/src
@@ -81,6 +82,9 @@ install_helper:
 
 install: setup install_helper install_non_gui report 
 	make install_gui
+	@cd ..; cp -r cs296_base_code $(INSTALL_PATH)/
+	make clean
+	
 
 
 non_gui_helper:
@@ -218,10 +222,11 @@ clean:prof_clean
 	@rm -rf $(DOCDIR)/html
 	@rm -f $(DOCDIR)/g18_report.html
 	
-
-dist	: clean
+dist_clean:clean
 	@rm -rf $(EXTERNAL_ROOT)/include/*
 	@rm -rf $(EXTERNAL_ROOT)/lib/*
 	@rm -rf $(EXTERNAL_ROOT)/src/Box2D
+
+
+dist	: dist_clean
 	@cd ..; tar -zcf cs296_g18_project.tar.gz cs296_base_code
-	@mv ../cs296_g18_project.tar.gz .
